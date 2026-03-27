@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor Operativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: sans-serif;
+            overflow: hidden; /* Evita que la página principal tenga scroll, dejándolo solo a los iframes */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row; /* Pantalla dividida verticalmente en escritorio */
+            width: 100%;
+            height: 100vh;
+        }
+
+        .viewer {
+            flex: 1; 
+            border: none;
+            position: relative;
+        }
+
+
+        .viewer:first-child {
+            border-right: 2px solid #2c3e50;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; 
+            }
+            
+            .viewer:first-child {
+                border-right: none;
+                border-bottom: 2px solid #2c3e50; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="viewer">
+            <iframe src="https://diego10rt.github.io/api-bomberos/" title="API Bomberos"></iframe>
+        </div>
+
+        <div class="viewer">
+            <iframe src="https://10.pipa.one/mapa-material-mayor/" title="Mapa Material Mayor"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
